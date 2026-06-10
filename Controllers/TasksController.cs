@@ -36,7 +36,6 @@ public class TasksController : ControllerBase
         UpdatedAt = task.UpdatedAt
     };
 
-    /// <summary>Get all tasks for the current user (with optional filters)</summary>
     [HttpGet]
     [ProducesResponseType(typeof(List<TaskResponse>), 200)]
     public async Task<IActionResult> GetAll([FromQuery] TaskFilterRequest filter)
@@ -60,7 +59,6 @@ public class TasksController : ControllerBase
         return Ok(tasks);
     }
 
-    /// <summary>Get a single task by ID</summary>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(TaskResponse), 200)]
     [ProducesResponseType(404)]
@@ -75,7 +73,6 @@ public class TasksController : ControllerBase
         return Ok(MapToResponse(task));
     }
 
-    /// <summary>Create a new task</summary>
     [HttpPost]
     [ProducesResponseType(typeof(TaskResponse), 201)]
     [ProducesResponseType(400)]
@@ -97,7 +94,6 @@ public class TasksController : ControllerBase
         return StatusCode(201, MapToResponse(task));
     }
 
-    /// <summary>Update an existing task (partial update)</summary>
     [HttpPut("{id}")]
     [ProducesResponseType(typeof(TaskResponse), 200)]
     [ProducesResponseType(404)]
@@ -123,7 +119,6 @@ public class TasksController : ControllerBase
         return Ok(MapToResponse(task));
     }
 
-    /// <summary>Delete a task</summary>
     [HttpDelete("{id}")]
     [ProducesResponseType(204)]
     [ProducesResponseType(404)]
@@ -141,7 +136,6 @@ public class TasksController : ControllerBase
         return NoContent();
     }
 
-    /// <summary>Get all unique categories used by the current user</summary>
     [HttpGet("categories")]
     [ProducesResponseType(typeof(List<string>), 200)]
     public async Task<IActionResult> GetCategories()
