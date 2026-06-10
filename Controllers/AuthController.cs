@@ -20,7 +20,6 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
 
-    /// <summary>Register a new user</summary>
     [HttpPost("register")]
     [ProducesResponseType(typeof(AuthResponse), 201)]
     [ProducesResponseType(400)]
@@ -52,7 +51,6 @@ public class AuthController : ControllerBase
         });
     }
 
-    /// <summary>Login with email and password</summary>
     [HttpPost("login")]
     [ProducesResponseType(typeof(AuthResponse), 200)]
     [ProducesResponseType(401)]
